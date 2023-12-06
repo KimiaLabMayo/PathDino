@@ -11,22 +11,23 @@ This repository contains the training code and the pretrained weights of the pap
 
 - [Overview](#overview)
 - [HistoRotate: Rotation-Agnostic Training](#historotate-rotation-agnostic-training)
-- [Training Dataset Preparation](#training-dataset-preparation)
-- [Train PathDino](#train-pathdino)
-- [Inference PathDino on histopathology image](#inference-pathdino-on-histopathology-image)
+- [PathDino: Histopathology Vision Transformer](#pathdino-histopathology-vision-transformer)
+- [Dataset Preparation](#dataset-preparation)
+- [PathDino Training](#pathdino-training)
+- [PathDino Inference on Histopathology Image](#pathdino-inference-on-histopathology-image)
 - [Results](#results)
 - [Citation](#citation)
 
 
 ## Overview 
 
-The proposed Whole Slide Image (WSI) analysis pipeline incorporates a fast patch selection method, \(FPS\), which efficiently selects representative patches while preserving spatial distribution. The second component, \(HistoRotate\), introduces a \(360^\circ\) rotation augmentation for training histopathology models. Unlike natural images, histopathology patch rotation enhances learning without altering contextual information. The third module, \(PathDino\), is a compact histopathology Transformer with only five small vision transformer blocks and ≈\(9\) million parameters, markedly fewer than alternatives.. Customized for histology images, PathDino demonstrates superior performance and mitigates overfitting, a common challenge in histology image analysis. 
+The proposed Whole Slide Image (WSI) analysis pipeline incorporates a fast patch selection method, \(**FPS**\), which efficiently selects representative patches while preserving spatial distribution. The second component, **HistoRotate**, introduces a \(360&deg;\) rotation augmentation for training histopathology models. Unlike natural images, histopathology patch rotation enhances learning without altering contextual information. The third module, **PathDino**, is a compact histopathology Transformer with only five small vision transformer blocks and ≈9 million parameters, markedly fewer than alternatives. Customized for histology images, PathDino demonstrates superior performance and mitigates overfitting, a common challenge in histology image analysis. 
 
 <img width="1500" src="./files/activations_gifSmall.gif">
 
 
 ## HistoRotate: Rotation-Agnostic Training
-A $360^\circ$ rotation augmentation for training models on histopathology images. Unlike training on natural images where the rotation may change the context of the visual data, rotating a histopathology patch does not change the context and it improves the learning process for better reliable embedding learning.
+**HistoRotate** is a $360&deg;$ rotation augmentation for training models on histopathology images. Unlike training on natural images where the rotation may change the context of the visual data, rotating a histopathology patch does not change the context and it improves the learning process for better reliable embedding learning.
 
 <p align="center">
   <img src="./files/HistRotate.png"  width="400">
@@ -34,15 +35,15 @@ A $360^\circ$ rotation augmentation for training models on histopathology images
 
 
 
-##PathDino: Histopathology Vision Transformer
-PathDino is a lightweight histopathology transformer consisting of just five small vision transformer blocks. PathDino is a customized ViT architecture, finely tuned to the nuances of histology images. It not only exhibits superior performance but also effectively reduces susceptibility to overfitting, a common challenge in histology image analysis.
+## PathDino: Histopathology Vision Transformer
+**PathDino** is a lightweight histopathology transformer consisting of just five small vision transformer blocks. PathDino is a customized ViT architecture, finely tuned to the nuances of histology images. It not only exhibits superior performance but also effectively reduces susceptibility to overfitting, a common challenge in histology image analysis.
 
 
  MV@5 vs # Params vs FLOPs             |  PathDino vs HIPT vs DinoSSLPath
 :-------------------------:|:-------------------------:
 <img width="700" src="./files/FigPathDino_parameters_FLOPs_compare.png"> |  <img width="700" src="./files/ActivationMap.png">
 
-## Training Dataset Preparation
+## Dataset Preparation
 The proposed PathDino Pretraining Dataset. We extracted a total of $6,087,558$ patches from $11,765$ diagnostic TCGA WSIs. Specifically, $3,969,490$ patches have a 1024×1024 dimension, while $2,118,068$ patches have a $512\times 512$ dimension. The extraction was conducted at a 20× magnification level, with a tissue threshold of $90\%$. The pretrianing WSI list used from TCGA can be found [TCGA Diagnositc WSI List](https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22TCGA%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22files.access%22%2C%22value%22%3A%5B%22open%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22files.data_format%22%2C%22value%22%3A%5B%22svs%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22files.experimental_strategy%22%2C%22value%22%3A%5B%22Diagnostic%20Slide%22%5D%7D%7D%5D%7D).
 
 Overall, the patches tiled from TCGA stored in a data directory structure as follows:
@@ -62,7 +63,7 @@ TCGA
 ```
 **Note:** It is not necessary to get all the patches in two different dimensions $1024\times 1024$ and $512\times 512$. We recommend to patch all WSIs in $1024\times 1024$ size. This will help applying the $360^\circ$ rotation augmentation to each patch.
 
-## Train PathDino
+## PathDino Training
 Train PathDino on single GPU run the following command:
 
 ```
@@ -87,7 +88,7 @@ python -m torch.distributed.launch --nproc_per_node=8  PathDino_main_512.py \
                             --host '28500' \
 ```
 
-## Inference PathDino on histopathology image
+## PathDino Inference on Histopathology Image
 **To extract embeddings from histopathology images using the pretrained PathDino model:**
 
 ```
