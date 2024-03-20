@@ -93,7 +93,7 @@ python -m torch.distributed.launch --nproc_per_node=8  PathDino_main_512.py \
 
 First, download the pretrained model ```PathDino512.pth``` from the [HuggingFace repo](https://huggingface.co/spaces/Saghir/PathDino/tree/main). Then, locate it in the ```./inference``` directory.
 
-```
+```python
 from PathDino import get_pathDino_model
 from PIL import Image
 import torch
