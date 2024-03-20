@@ -91,6 +91,8 @@ python -m torch.distributed.launch --nproc_per_node=8  PathDino_main_512.py \
 ## PathDino Inference on Histopathology Image
 **To extract embeddings from histopathology images using the pretrained PathDino model:**
 
+First, download the pretrained model ```PathDino512.pth``` from the [HuggingFace repo](https://huggingface.co/spaces/Saghir/PathDino/tree/main). Then, locate it in the ```./inference``` directory.
+
 ```
 from PathDino import get_pathDino_model
 from PIL import Image
