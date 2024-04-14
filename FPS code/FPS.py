@@ -1,5 +1,5 @@
 
-from patching import process_wsi
+from FPS_helper import process_wsi
 import openslide
 import numpy as np
 import random
