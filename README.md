@@ -146,4 +146,4 @@ The results presented in Table $4$ provide an extensive comparative analysis of 
 The code is built upon [Dino](https://github.com/facebookresearch/dino)
 
 ## Disclaimer
-This code is intended for research puposes only. Any commercial use is prohibited.
+This code is intended for research purposes only. Any commercial use is prohibited.
