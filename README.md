@@ -36,7 +36,7 @@ The proposed Whole Slide Image (WSI) analysis pipeline incorporates a fast patch
 
 
 ## PathDino: Histopathology Vision Transformer
-**PathDino** is a lightweight histopathology transformer consisting of just five small vision transformer blocks. PathDino is a customized ViT architecture, finely tuned to the nuances of histology images. It not only exhibits superior performance but also effectively reduces susceptibility to overfitting, a common challenge in histology image analysis.
+**PathDino** is a lightweight histopathology transformer consisting of just five small vision transformer blocks. PathDino is a customized ViT architecture, fine-tuned to the nuances of histology images. It not only exhibits superior performance but also effectively reduces susceptibility to overfitting, a common challenge in histology image analysis.
 
 
  MV@5 vs # Params vs FLOPs             |  PathDino vs HIPT vs DinoSSLPath
