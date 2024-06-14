@@ -1,10 +1,10 @@
 <!-- omit in toc -->
 # PathDino: Rotation-Agnostic Image Representation Learning for Digital Pathology
 <!-- omit in toc -->
-### [Paper](https://arxiv.org/pdf/2311.08359v2.pdf) | [Supplement](https://arxiv.org/pdf/2311.08359v2.pdf) | [Website](https://kimialabmayo.github.io/PathDino-Page/) | [Demo](https://huggingface.co/spaces/Saghir/PathDino) | [Dataset](https://github.com/KimiaLabMayo/PathDino/blob/main/preprocessing/gdc_manifest_svs_Diagnostic_slide_Open_11765.txt)
+### [Paper](https://openaccess.thecvf.com/content/CVPR2024/papers/Alfasly_Rotation-Agnostic_Image_Representation_Learning_for_Digital_Pathology_CVPR_2024_paper.pdf) | [Supplement](https://openaccess.thecvf.com/content/CVPR2024/supplemental/Alfasly_Rotation-Agnostic_Image_Representation_CVPR_2024_supplemental.pdf) | [Website](https://kimialabmayo.github.io/PathDino-Page/) | [Demo](https://huggingface.co/spaces/Saghir/PathDino) | [Dataset](https://github.com/KimiaLabMayo/PathDino/blob/main/preprocessing/gdc_manifest_svs_Diagnostic_slide_Open_11765.txt)
 
 
-This repository contains the main training code and the pretrained weights of the CVPR 2024 paper: [Rotation-Agnostic Image Representation Learning for Digital Pathology](https://arxiv.org/pdf/2311.08359v2.pdf)
+This repository contains the main training code and the pretrained weights of the CVPR 2024 paper: [Rotation-Agnostic Image Representation Learning for Digital Pathology](https://openaccess.thecvf.com/content/CVPR2024/html/Alfasly_Rotation-Agnostic_Image_Representation_Learning_for_Digital_Pathology_CVPR_2024_paper.html)
 
 <!-- omit in toc -->
 ## Contents
@@ -132,14 +132,14 @@ The results presented in Table $4$ provide an extensive comparative analysis of 
 
 ## Citation 
 ```
-   @article{alfasly2023rotationagnostic,
-      title={Rotation-Agnostic Image Representation Learning for Digital Pathology}, 
-      author={Saghir Alfasly and Abubakr Shafique and Peyman Nejat and Jibran Khan and Areej Alsaafin and Ghazal Alabtah and H.R. Tizhoosh},
-      year={2023},
-      eprint={2311.08359},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-    }
+@InProceedings{Alfasly_2024_CVPR,
+    author    = {Alfasly, Saghir and Shafique, Abubakr and Nejat, Peyman and Khan, Jibran and Alsaafin, Areej and Alabtah, Ghazal and Tizhoosh, H.R.},
+    title     = {Rotation-Agnostic Image Representation Learning for Digital Pathology},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {11683-11693}
+}
 ```
 **Acknowledgements** 
 
